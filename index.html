@@ -38,33 +38,50 @@
     .pulse {
       animation: pulse 2s infinite;
     }
+
+    /* Spin animation used for the swirling effect */
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    /* Swirling circular outline behind hero content */
+    .swirl-effect::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      height: 600px;
+      margin-left: -300px;
+      margin-top: -300px;
+      border: 2px solid rgba(34, 197, 94, 0.4);
+      border-radius: 50%;
+      animation: spin 60s linear infinite;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body class="bg-black text-white font-sans">
   <!-- Hero section with optional video background -->
-  <section class="relative h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background video (replace video-bg.mp4 with your own file) -->
-    <video autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover">
-      <source src="video-bg.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <!-- Overlay to darken the video -->
-    <div class="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+  <section class="relative h-screen flex items-center justify-center overflow-hidden swirl-effect">
+    <!-- Static hero background: replace the video with a neon swirl image -->
+    <div class="absolute top-0 left-0 w-full h-full">
+      <img src="hero-bg.png" alt="Hero background" class="w-full h-full object-cover">
+      <!-- Dark overlay to improve text readability -->
+      <div class="absolute top-0 left-0 w-full h-full bg-black/70"></div>
+    </div>
     <!-- Content -->
-    <div class="relative z-10 text-center max-w-2xl px-6">
-      <!-- Logo image placed in the repository root -->
+    <div class="relative z-10 text-center max-w-3xl px-6">
+      <!-- Logo placed above tagline for brand recall -->
       <img src="dropzone-logo.png" alt="Dropzone Logo" class="mx-auto w-32 mb-6">
-      <h1 class="text-5xl lg:text-7xl font-extrabold neon-text">DROPZONE</h1>
-      <p class="mt-4 text-lg text-gray-300">Your gaming hub for vouchers, flash deals & digital goods. Power up instantly.</p>
-      <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+      <!-- Hero headline split across two lines to mirror the provided reference design -->
+      <h1 class="text-5xl lg:text-7xl font-extrabold neon-text uppercase">Battle Royale</h1>
+      <h2 class="text-3xl lg:text-5xl font-extrabold text-green-400 mt-2 uppercase">Starts Here</h2>
+      <p class="mt-6 text-lg text-gray-300">Join tournaments, score flash deals & power up instantly with Dropzone.</p>
+      <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
         <a href="#download" class="bg-green-500 text-black px-8 py-3 rounded-full font-bold hover:bg-green-400 transition neon-glow pulse">Download App</a>
         <a href="#shop" class="bg-purple-600 text-white px-8 py-3 rounded-full font-bold hover:bg-purple-500 transition neon-glow">Shop Now</a>
       </div>
-    </div>
-    <!-- Optional floating screenshot on larger screens -->
-    <div class="hidden lg:block absolute right-8 bottom-4 z-10">
-      <!-- App screenshot placed in the repository root -->
-      <img src="screenshot.png" alt="App Screenshot" class="rounded-3xl shadow-lg float w-80">
     </div>
   </section>
 
@@ -95,6 +112,7 @@
         <!-- Deal card 1 -->
         <div class="p-6 bg-black rounded-2xl shadow-lg hover:scale-105 transition neon-glow flex flex-col justify-between">
           <div>
+            <img src="deal1.png" alt="Gift Card Mega Pack" class="rounded-lg mb-4">
             <h3 class="text-lg font-bold">Gift Card Mega Pack</h3>
             <p class="text-gray-400">A selection of popular gift cards at unbeatable prices.</p>
           </div>
@@ -106,8 +124,9 @@
         <!-- Deal card 2 -->
         <div class="p-6 bg-black rounded-2xl shadow-lg hover:scale-105 transition neon-glow flex flex-col justify-between">
           <div>
-            <h3 class="text-lg font-bold">Top-up Bundle</h3>
-            <p class="text-gray-400">Boost your in-game currency with our premium bundles.</p>
+            <img src="deal2.png" alt="Top‑up Bundle" class="rounded-lg mb-4">
+            <h3 class="text-lg font-bold">Top‑up Bundle</h3>
+            <p class="text-gray-400">Boost your in‑game currency with our premium bundles.</p>
           </div>
           <div class="mt-4">
             <p class="text-green-400 font-bold text-xl">Save 20%</p>
@@ -117,6 +136,7 @@
         <!-- Deal card 3 -->
         <div class="p-6 bg-black rounded-2xl shadow-lg hover:scale-105 transition neon-glow flex flex-col justify-between">
           <div>
+            <img src="deal3.png" alt="Exclusive Game Key" class="rounded-lg mb-4">
             <h3 class="text-lg font-bold">Exclusive Game Key</h3>
             <p class="text-gray-400">Unlock a brand‑new game at a fraction of the cost.</p>
           </div>
